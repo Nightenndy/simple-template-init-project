@@ -1,0 +1,140 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);  
+
+  .footer-container {
+    display: flex;
+    margin-top: 37px;
+
+    @media (max-width: $small) {
+      flex-wrap: wrap;
+    }
+  }
+
+  .menu {
+    @media (max-width: $xsmall) {
+      justify-content: center;
+    }
+
+    &__list {
+      @media (max-width: $large) {
+          top: initial;
+          bottom: 100%;
+      }
+
+      &-item {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+.footer-logo {
+  margin: 15px;
+
+  @media (min-width: $small + 1) {
+    text-align: right;
+  }
+
+  @media (max-width: $small) {
+    text-align: center;
+  }
+}
+
+.twitter {
+  display: flex;
+  flex-wrap: wrap;
+  
+  &__image {
+      flex: 0 0 55px;
+  }
+
+  &__info {
+    flex: 1 0 100px;
+
+    &-brand {
+      font-size: 2rem;
+      color: #ffffff;
+      display: block;
+    }
+
+    &-text {
+      color: #727272
+    }
+  }
+
+  &__post {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);    
+    flex: 1 0 calc(100% - 67px);
+  
+    @media (min-width: $xsmall + 1) {
+      margin: 12px 30px 30px 37px;
+    }
+  
+    @media (max-width: $xsmall) {
+      margin: 12px 0 30px 37px;
+    }
+  
+    &-text {
+      color: $base-color;
+      line-height: 18px;
+    }
+  
+    &-data-info {
+      font-style: italic;
+      color: $accent-color;
+      font-size: 0.83rem;
+    }
+  
+    &::before {
+      position: absolute;
+      top: -19px;
+      left: 0;
+      content: url("../img/twitter-speech-bubble.png");
+    }
+  }
+}
+
+.copyright {
+  color: #ffffff;
+
+  @media (min-width: $large + 1) {
+    margin: 57px 15px 15px 15px;
+    text-align: right;
+  }
+
+  @media (max-width: $large) and (min-width: $small + 1) {
+    margin: 75px 15px 15px 15px;
+    text-align: right;
+  }
+
+  @media (max-width: $small) {
+    margin: 30px 15px 15px 15px;
+    text-align: center;
+  }
+}
+
+.footer-twitter {
+  @media (max-width: $large) and (min-width: $small + 1) {
+      flex: 0 0 60%;
+  }
+
+  @media (max-width: $small) {
+      flex: 1 0 100%;
+  }
+}
+
+.footer-menu {
+  @media (max-width: $large) and (min-width: $small + 1) {
+      flex: 0 0 40%;
+  }
+
+  @media (max-width: $small) {
+      flex: 1 0 100%;
+  }
+}

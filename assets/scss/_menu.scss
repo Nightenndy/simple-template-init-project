@@ -1,0 +1,122 @@
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 9;
+
+  @media (min-width: $small + 1) {
+    flex: 1 0 200px;
+  }
+
+  @media (max-width: $small) {
+    flex: 1 0 50px;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: $large) {
+      position: absolute;
+      visibility: hidden;
+      flex-direction: column;
+      width: 100vw;
+      top: 100%;
+      right: -15px;
+      z-index: -10000;
+      opacity: 0;
+      transition: opacity 0.5s;
+      background-color: rgba(#000000, 0.8);
+      
+    }
+
+    &.active {
+      opacity: 1;
+      z-index: 1;
+      visibility: visible;
+
+      .menu__list-item {
+        text-align: center;
+        width: 100%;
+        margin: 0;
+
+        a {
+          width: 100%;
+          padding: 15px;
+          border-radius: 0;
+        }
+      }
+    }
+  }
+
+  &__list-item {
+    display: block;
+    margin: 7px;
+
+    a {
+      display: block;
+      color: $light-color;
+      border-radius: 15px;
+      padding: 12px 15px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    &.active a {
+      background: linear-gradient(to bottom, #0f8bbe 0%,#2989d8 50%,#207cca 50%,#0eb7fe 100%);
+    }
+
+    &:hover:not(.active) a {
+      background-color: rgba(#ffffff, 0.2);
+    }
+  }
+
+  &__btn {
+    width: 50px;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgba(#000000, 0.25);
+
+    @media (min-width: $large + 1) {
+      display: none;
+    }
+
+    @media (max-width: $large) {
+      display: flex;
+    }
+
+    &-row {
+      position: relative;
+      width: 60%;
+      margin: 2px 0;
+      height: 2px;
+      background-color: #ffffff;
+      transition: 0.5s;
+    }
+
+    &.active .menu__btn-row {
+      &:first-of-type {
+          top: 6px;
+
+          transform: rotate(-135deg);
+      }
+
+      &:last-of-type {
+          top: -6px;
+
+          transform: rotate(-225deg);
+      }
+
+      &:nth-of-type(2) {
+          opacity: 0;
+      }
+    }
+  }
+}

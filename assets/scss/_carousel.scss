@@ -1,0 +1,127 @@
+.carousel {
+  position: relative;
+  order: 1;
+  padding: 15px;
+  width: 100%;
+  background-color: $light-color;
+}
+
+.carousel-slides {
+  position: relative;
+}
+
+.carousel-slide {
+  position: absolute;
+  display: flex;
+  top: 0;
+  background-image: url(../img/carousel-item-bg.png);
+  background-size: cover;
+  background-position: 50% 50%;
+  box-shadow: 0 0 1px darken($light-color, 7%);
+  border: 7px solid #ffffff;
+  opacity: 0;
+  transition: opacity 0.5s;
+
+  &.active {
+    position: relative;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  @media (max-width: $small) {
+    flex-wrap: wrap;
+  }
+
+  &__image {
+    display: flex;
+    padding: 15px;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+    }
+
+    @media (min-width: $large + 1) {
+      flex: 0 0 250px;
+    }
+
+    @media (max-width: $large) and (min-width: $small + 1) {
+      flex: 0 0 220px;
+    }
+
+    @media (max-width: $small) {
+      flex: 1 0 100%;
+      justify-content: center;
+    }
+  }
+
+  &__text {
+    h3 {
+      color: #ffffff;
+      text-transform: uppercase;
+
+      @media (min-width: $small + 1) {
+      margin: $gutter 0;
+      flex-grow: 1;
+      }
+
+      @media (max-width: $small) {
+      margin: 0 0 15px 0;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      flex: 1 0 100%;
+      max-width: calc(100vw - 135px);
+      }
+    }
+
+    p {
+      color: #ffffff;
+      @include block-with-text;
+
+      @media (min-width: $small + 1) {
+        margin-bottom: 15px;
+        text-align: justify;
+        flex-grow: 1;
+      }
+
+      @media (max-width: $small) {
+        margin: 0 0 15px 0;
+        margin-bottom: 0;
+        text-align: justify;
+      }
+    }
+
+    @media (min-width: $small + 1) {
+      padding: 15px 30px 15px 15px;
+      flex-grow: 1;
+    }
+
+    @media (max-width: $small) {
+      flex: 1 0 100%;
+      padding: 0 15px 15px 15px;
+    }
+  }
+}
+
+.carousel-control {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+
+  &.next {
+    right: 3px;
+    transform: scale(-1, 1);
+  }
+
+  &.prev {
+    left: 3px;
+  }
+
+  img {
+      margin-top: -15px;
+  }
+}
+
+
